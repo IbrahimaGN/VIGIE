@@ -1,95 +1,141 @@
+/* ------------------------
+   STYLE GLOBAL
+-------------------------*/
 body {
-    background: #f4f6f8;
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 90%;
-    margin: auto;
-    padding-top: 10px;
-}
-
-.title {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
     color: #333;
 }
 
+/* ------------------------
+   NAVBAR
+-------------------------*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #003366;
+    padding: 15px 25px;
+    color: white;
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00aaff;
+}
+
+/* ------------------------
+   CONTENU
+-------------------------*/
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #003366;
+}
+
+.home-text {
+    font-size: 20px;
+    color: #444;
+}
+
+/* ------------------------
+   CARTE / IFRAME
+-------------------------*/
 .card {
     background: white;
-    border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    margin-top: 30px;
 }
 
-/* ---- IFRAME RESPONSIVE PAR HAUTEUR ÉCRAN ---- */
 .powerbi-frame {
     width: 100%;
-    height: 80vh;  /* 80% de la hauteur de l'écran */
-    border: 0;
-    outline: none;
+    height: 85vh; /* occupe presque tout l'écran */
+    border: none;
+    border-radius: 10px;
 }
 
-/* Tablettes */
-@media (max-width: 992px) {
-    .powerbi-frame {
-        height: 75vh; /* légèrement réduit */
-    }
+/* ------------------------
+   RESPONSIVE DESIGN
+-------------------------*/
+
+@media (max-width: 900px) {
     .title {
-        font-size: 28px;
+        font-size: 26px;
+    }
+
+    .powerbi-frame {
+        height: 75vh;
     }
 }
 
-/* Smartphones */
-@media (max-width: 600px) {
-    .container {
-        width: 95%;
+@media (max-width: 700px) {
+
+    /* Navbar empilée */
+    .navbar {
+        flex-direction: column;
+        text-align: center;
     }
-    .powerbi-frame {
-        height: 70vh; /* évite les scrolls excessifs */
+
+    .nav-links {
+        margin-top: 10px;
     }
+
+    .nav-links a {
+        margin-left: 10px;
+        margin-right: 10px;
+        display: inline-block;
+        padding: 8px 0;
+    }
+
     .title {
         font-size: 24px;
     }
-    .card {
-        padding: 15px;
-    }
-}
 
-/* ---- GRAND ÉCRAN / TV ---- */
-@media (min-width: 1500px) {
-    .container {
-        width: 80%;
+    .home-text {
+        font-size: 18px;
     }
 
     .powerbi-frame {
-        height: 85vh; /* presque plein écran */
-    }
-
-    .title {
-        font-size: 40px;
-    }
-
-    .card {
-        padding: 30px;
-        border-radius: 20px;
+        height: 70vh;
     }
 }
 
-/* EXTRA GRAND ÉCRAN (TV 4K / Salle de réunion) */
-@media (min-width: 2200px) {
-    .container {
-        width: 70%;
-    }
+@media (max-width: 480px) {
 
-    .powerbi-frame {
-        height: 90vh; /* FULL presque total */
+    .nav-logo {
+        font-size: 20px;
     }
 
     .title {
-        font-size: 48px;
+        font-size: 22px;
+    }
+
+    .powerbi-frame {
+        height: 65vh;
     }
 }
