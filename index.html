@@ -7,18 +7,49 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">MON DASHBOARD</a>
-        <div class="nav-links">
-            <a href="vigie.html">Vigie Horaire</a>
-            <a href="suivi.html">Suivi Contact</a>
+        <a href="#home" class="nav-logo">MON DASHBOARD</a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#vigie">Vigie Horaire</a>
+            <a href="#suivi">Suivi Contact</a>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+
+        <!-- HAMBURGER -->
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
-    <div class="container">
+    <!-- SECTIONS -->
+    <!-- <section id="home" class="section">
         <h1 class="title">Bienvenue</h1>
-        <p class="home-text">Choisissez un rapport dans la barre de navigation.</p>
-    </div>
+    </section> -->
+
+    <section id="vigie" class="section">
+        <h1 class="title">VIGIE HORAIRE</h1>
+        <div class="card">
+            <iframe class="powerbi-frame"
+                src="https://app.powerbi.com/reportEmbed?reportId=bf47ef49-b395-4cc8-b79a-1146dc456e33&autoAuth=true&ctid=c1d47378-a976-412f-946f-f443471c31d8"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <section id="suivi" class="section">
+        <h1 class="title">SUIVI CONTACT</h1>
+        <div class="card">
+            <iframe class="powerbi-frame"
+                src="https://app.powerbi.com/reportEmbed?reportId=552ff021-81e3-46ee-aaad-bfb988e8512a&autoAuth=true&ctid=c1d47378-a976-412f-946f-f443471c31d8"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script src="static/app.js"></script>
 
 </body>
 </html>

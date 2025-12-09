@@ -1,141 +1,168 @@
-/* ------------------------
-   STYLE GLOBAL
--------------------------*/
+/* GLOBAL */
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f9;
-    color: #333;
+    font-family: "Segoe UI", Arial;
+    background: #f4f6f8;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* ------------------------
-   NAVBAR
--------------------------*/
+.dark-mode {
+    background: #121212;
+    color: #eaeaea;
+}
+
+/* NAVBAR TRANSPARENTE FIXE */
 .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #003366;
-    padding: 15px 25px;
-    color: white;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.dark-mode .navbar {
+    background: rgba(20, 20, 20, 0.3);
+}
+
+.navbar.scrolled {
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.dark-mode .navbar.scrolled {
+    background: #1f1f1f;
 }
 
 .nav-logo {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
+    color: #1A73E8;
     text-decoration: none;
-    color: white;
 }
 
 .nav-links a {
     margin-left: 20px;
     text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
+    color: #333;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.dark-mode .nav-links a {
+    color: #eaeaea;
 }
 
 .nav-links a:hover {
-    color: #00aaff;
+    color: #1A73E8;
 }
 
-/* ------------------------
-   CONTENU
--------------------------*/
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    text-align: center;
+/* HAMBURGER MENU */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 25px;
-    color: #003366;
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 4px;
+    transition: 0.3s;
 }
 
-.home-text {
-    font-size: 20px;
-    color: #444;
+.dark-mode .hamburger span {
+    background: #eaeaea;
 }
 
-/* ------------------------
-   CARTE / IFRAME
--------------------------*/
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-    margin-top: 30px;
-}
-
-.powerbi-frame {
-    width: 100%;
-    height: 85vh; /* occupe presque tout l'écran */
-    border: none;
-    border-radius: 10px;
-}
-
-/* ------------------------
-   RESPONSIVE DESIGN
--------------------------*/
-
-@media (max-width: 900px) {
-    .title {
-        font-size: 26px;
-    }
-
-    .powerbi-frame {
-        height: 75vh;
-    }
-}
-
-@media (max-width: 700px) {
-
-    /* Navbar empilée */
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-    }
-
+/* MOBILE NAV */
+@media (max-width: 768px) {
     .nav-links {
-        margin-top: 10px;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 60%;
+        background: white;
+        display: none;
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .dark-mode .nav-links {
+        background: #1f1f1f;
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     .nav-links a {
-        margin-left: 10px;
-        margin-right: 10px;
-        display: inline-block;
-        padding: 8px 0;
+        padding: 10px 0;
+        margin: 0;
     }
 
-    .title {
-        font-size: 24px;
-    }
-
-    .home-text {
-        font-size: 18px;
-    }
-
-    .powerbi-frame {
-        height: 70vh;
+    .hamburger {
+        display: flex;
     }
 }
 
-@media (max-width: 480px) {
+/* SECTIONS */
+.section {
+    padding-top: 120px;
+    width: 90%;
+    margin: auto;
+}
 
-    .nav-logo {
-        font-size: 20px;
-    }
+/* TITRES */
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 
-    .title {
-        font-size: 22px;
-    }
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
 
+.dark-mode .card {
+    background: #1f1f1f;
+}
+
+/* IFRAME */
+.powerbi-frame {
+    width: 100%;
+    height: 80vh;
+    border: 0;
+}
+
+/* MOBILE */
+@media(max-width: 600px) {
     .powerbi-frame {
-        height: 65vh;
+        height: 70vh;
     }
+    .title {
+        font-size: 26px;
+    }
+}
+
+/* THEME BUTTON */
+.theme-toggle {
+    margin-left: 20px;
+    padding: 6px 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
