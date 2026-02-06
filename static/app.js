@@ -1,3 +1,4 @@
+
 // === NAVBAR TRANSPARENTE + HIDE ON SCROLL ===
 let lastScroll = 0;
 const navbar = document.querySelector(".navbar");
